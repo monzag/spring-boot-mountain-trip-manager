@@ -11,8 +11,13 @@ public class MountainService {
         this.mountainRepository = mountainRepository;
     }
 
-    public Mountain getMountain(Integer id) {
-        return mountainRepository.findOne(id);
+    public Mountain getMountain(Integer id) throws MountainNotExistException {
+        Mountain mountain = mountainRepository.findOne(id);
+        if (mountain == null) {
+            throw new MountainNotExistException();
+        }
+
+        return mountain;
     }
 
     public Iterable<Mountain> getAll() {
