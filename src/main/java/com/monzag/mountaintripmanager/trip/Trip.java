@@ -2,21 +2,21 @@ package com.monzag.mountaintripmanager.trip;
 
 import com.monzag.mountaintripmanager.mountain.Mountain;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
 public class Trip {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String data;
     private String distance;
     private String time;
     private Mountain mountain;
-
-    public Trip(Integer id, String data, String distance, String time, Mountain mountain) {
-        this.id = id;
-        this.data = data;
-        this.distance = distance;
-        this.time = time;
-        this.mountain = mountain;
-    }
 
     public Integer getId() {
         return id;
