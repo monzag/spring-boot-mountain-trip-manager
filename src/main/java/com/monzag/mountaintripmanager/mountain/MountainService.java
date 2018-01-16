@@ -16,6 +16,11 @@ public class MountainService {
     }
 
     public Iterable<Mountain> getAll() {
-        return mountainRepository.findAll()l;
+        return mountainRepository.findAll();
+    }
+
+    public Mountain create(Mountain mountain) {
+        mountainRepository.save(mountain);
+        return mountain;
     }
 }
