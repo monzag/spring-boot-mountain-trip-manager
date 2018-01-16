@@ -26,6 +26,6 @@ public class TripController {
 
     @PostMapping(path = "")
     public Trip create(@RequestBody Trip trip) {
-        return trip;
+        return tripService.createTrip(trip);
     }
 }
