@@ -2,8 +2,6 @@ package com.monzag.mountaintripmanager.trip;
 
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
-
 @RestController
 @RequestMapping(path = "/trips")
 public class TripController {
