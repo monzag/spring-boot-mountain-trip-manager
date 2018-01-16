@@ -8,6 +8,12 @@ import java.util.ArrayList;
 @RequestMapping(path = "/trips")
 public class TripController {
 
+    private TripService tripService;
+
+    public TripController(TripService tripService) {
+        this.tripService = tripService;
+    }
+
     @GetMapping(path = "")
     public Iterable<Trip> index() {
         return new ArrayList<>();
@@ -15,7 +21,7 @@ public class TripController {
 
     @GetMapping(path = "/{id}")
     public Trip get(@PathVariable Integer id) {
-        return new Trip();
+        return tripService.get(id);
     }
 
     @PostMapping(path = "")
