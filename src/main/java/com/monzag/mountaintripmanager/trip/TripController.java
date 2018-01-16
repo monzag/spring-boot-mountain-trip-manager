@@ -16,7 +16,7 @@ public class TripController {
 
     @GetMapping(path = "")
     public Iterable<Trip> index() {
-        return new ArrayList<>();
+        return tripService.getAll();
     }
 
     @GetMapping(path = "/{id}")
