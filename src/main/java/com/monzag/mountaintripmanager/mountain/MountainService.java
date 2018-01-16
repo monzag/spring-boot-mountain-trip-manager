@@ -14,4 +14,8 @@ public class MountainService {
     public Mountain getMountain(Integer id) {
         return mountainRepository.findOne(id);
     }
+
+    public Iterable<Mountain> getAll() {
+        return mountainRepository.findAll()l;
+    }
 }
