@@ -19,6 +19,10 @@ public class TripService {
         return trip;
     }
 
+    public Iterable<Trip> getAll() {
+        return tripRepository.findAll();
+    }
+
     public Trip createTrip(Trip trip) {
         tripRepository.save(trip);
         return trip;
