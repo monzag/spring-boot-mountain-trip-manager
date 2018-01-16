@@ -1,5 +1,6 @@
 package com.monzag.mountaintripmanager.mountain;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -18,12 +19,18 @@ public class MountainController {
     }
 
     @GetMapping(path = "{id}")
-    public Mountain get(@PathVariable Integer id) {
+    public Mountain get(@PathVariable Integer id) throws MountainNotExistException {
         return mountainService.getMountain(id);
     }
 
     @PostMapping(path = "")
     public Mountain create(@RequestBody Mountain mountain) {
         return mountainService.createMountain(mountain);
+    }
+
+    @ResponseStatus(HttpStatus.NOT_FOUND)
+    @ExceptionHandler(MountainNotExistException.class)
+    public String handleException(MountainNotExistException e) {
+        return e.getMessage();
     }
 }
