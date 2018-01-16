@@ -18,4 +18,9 @@ public class TripService {
         }
         return trip;
     }
+
+    public Trip createTrip(Trip trip) {
+        tripRepository.save(trip);
+        return trip;
+    }
 }
