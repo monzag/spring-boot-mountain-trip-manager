@@ -10,4 +10,8 @@ public class MountainService {
     public MountainService(MountainRepository mountainRepository) {
         this.mountainRepository = mountainRepository;
     }
+
+    public Mountain getMountain(Integer id) {
+        return mountainRepository.findOne(id);
+    }
 }
