@@ -11,10 +11,10 @@ public class TripService {
         this.tripRepository = tripRepository;
     }
 
-    public Trip get(Integer id) {
+    public Trip getTrip(Integer id) throws TripNotExistException {
         Trip trip = tripRepository.findOne(id);
         if (trip == null) {
-            System.out.println("Exception: trip not exist");
+            throw new TripNotExistException();
         }
         return trip;
     }
