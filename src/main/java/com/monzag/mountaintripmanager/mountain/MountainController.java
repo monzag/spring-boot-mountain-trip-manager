@@ -1,9 +1,6 @@
 package com.monzag.mountaintripmanager.mountain;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping(path = "/mountains")
@@ -23,5 +20,10 @@ public class MountainController {
     @GetMapping(path = "{id}")
     public Mountain get(@PathVariable Integer id) {
         return mountainService.getMountain(id);
+    }
+
+    @PostMapping(path = "")
+    public Mountain create(@RequestBody Mountain mountain) {
+        return mountainService.createMountain(mountain);
     }
 }
