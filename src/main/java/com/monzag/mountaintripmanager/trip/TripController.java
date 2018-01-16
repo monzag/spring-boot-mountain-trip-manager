@@ -1,9 +1,6 @@
 package com.monzag.mountaintripmanager.trip;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 
@@ -19,5 +16,10 @@ public class TripController {
     @GetMapping(path = "/{id}")
     public Trip get(@PathVariable Integer id) {
         return new Trip();
+    }
+
+    @PostMapping(path = "")
+    public Trip create(@RequestBody Trip trip) {
+        return trip;
     }
 }
