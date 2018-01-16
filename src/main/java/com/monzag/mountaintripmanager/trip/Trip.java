@@ -2,10 +2,7 @@ package com.monzag.mountaintripmanager.trip;
 
 import com.monzag.mountaintripmanager.mountain.Mountain;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Trip {
@@ -16,6 +13,8 @@ public class Trip {
     private String data;
     private String distance;
     private String time;
+
+    @OneToOne(cascade = CascadeType.PERSIST)
     private Mountain mountain;
 
     public Integer getId() {
