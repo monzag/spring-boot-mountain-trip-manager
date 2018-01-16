@@ -19,7 +19,7 @@ public class MountainService {
         return mountainRepository.findAll();
     }
 
-    public Mountain create(Mountain mountain) {
+    public Mountain createMountain(Mountain mountain) {
         mountainRepository.save(mountain);
         return mountain;
     }
