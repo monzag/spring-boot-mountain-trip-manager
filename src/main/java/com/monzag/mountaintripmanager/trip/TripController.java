@@ -2,6 +2,7 @@ package com.monzag.mountaintripmanager.trip;
 
 import com.monzag.mountaintripmanager.common.ObjectNotExistException;
 import com.monzag.mountaintripmanager.common.ResourceService;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
@@ -11,7 +12,7 @@ public class TripController {
 
     private ResourceService<Trip> tripService;
 
-    public TripController(ResourceService<Trip> tripService) {
+    public TripController(@Qualifier("tripArchievedService") ResourceService<Trip> tripService) {
         this.tripService = tripService;
     }
 
