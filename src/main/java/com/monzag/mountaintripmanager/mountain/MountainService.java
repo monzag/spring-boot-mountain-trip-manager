@@ -1,9 +1,11 @@
 package com.monzag.mountaintripmanager.mountain;
 
+import com.monzag.mountaintripmanager.common.ObjectNotExistException;
+import com.monzag.mountaintripmanager.common.ResourceService;
 import org.springframework.stereotype.Service;
 
 @Service
-public class MountainService {
+public class MountainService implements ResourceService<Mountain> {
 
     private MountainRepository mountainRepository;
 
@@ -11,10 +13,10 @@ public class MountainService {
         this.mountainRepository = mountainRepository;
     }
 
-    public Mountain getMountain(Integer id) throws MountainNotExistException {
+    public Mountain get(Integer id) throws ObjectNotExistException {
         Mountain mountain = mountainRepository.findOne(id);
         if (mountain == null) {
-            throw new MountainNotExistException();
+            throw new ObjectNotExistException();
         }
 
         return mountain;
@@ -24,8 +26,12 @@ public class MountainService {
         return mountainRepository.findAll();
     }
 
-    public Mountain createMountain(Mountain mountain) {
+    public Mountain create(Mountain mountain) {
         mountainRepository.save(mountain);
         return mountain;
+    }
+
+    public void delete(Integer id) {
+        mountainRepository.delete(id);
     }
 }
