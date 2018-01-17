@@ -6,7 +6,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface MountainRepository extends CrudRepository<Mountain, Integer> {
 
-    Iterable<Mountain> findByArchived(Boolean archieved);
+    Iterable<Mountain> findByArchived(Boolean archived);
 
-    Mountain findByIdAndArchived(Integer id, Boolean archieved);
+    Mountain findByIdAndArchived(Integer id, Boolean archived);
 }
