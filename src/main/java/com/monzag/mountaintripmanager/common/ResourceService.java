@@ -2,7 +2,7 @@ package com.monzag.mountaintripmanager.common;
 
 public interface ResourceService<T> {
 
-    T get(Integer id);
+    T get(Integer id) throws ObjectNotExistException;
 
     Iterable<T> getAll();
 
