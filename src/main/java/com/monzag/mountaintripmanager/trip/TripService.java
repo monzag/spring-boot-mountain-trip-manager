@@ -27,4 +27,8 @@ public class TripService {
         tripRepository.save(trip);
         return trip;
     }
+
+    public void deleteTrip(Integer id) {
+        tripRepository.delete(id);
+    }
 }
