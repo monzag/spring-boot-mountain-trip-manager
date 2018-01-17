@@ -28,6 +28,11 @@ public class TripController {
         return tripService.createTrip(trip);
     }
 
+    @DeleteMapping(path = "/{id}")
+    public void delete(@PathVariable Integer id) {
+        tripService.deleteTrip(id);
+    }
+
     @ResponseStatus(HttpStatus.NOT_FOUND)
     @ExceptionHandler(TripNotExistException.class)
     public String handleException(TripNotExistException e) {
