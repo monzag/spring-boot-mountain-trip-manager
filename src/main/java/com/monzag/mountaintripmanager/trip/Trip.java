@@ -17,13 +17,13 @@ public class Trip {
     @OneToOne(cascade = CascadeType.PERSIST)
     private Mountain mountain;
 
-    private boolean archived;
+    private Boolean archived;
 
-    public boolean isArchived() {
+    public Boolean isArchived() {
         return archived;
     }
 
-    public void setArchived(boolean archived) {
+    public void setArchived(Boolean archived) {
         this.archived = archived;
     }
 
