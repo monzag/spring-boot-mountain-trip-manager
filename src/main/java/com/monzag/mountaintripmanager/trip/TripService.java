@@ -1,20 +1,27 @@
 package com.monzag.mountaintripmanager.trip;
 
+import com.monzag.mountaintripmanager.common.ObjectNotExistException;
+import com.monzag.mountaintripmanager.common.ResourceService;
 import org.springframework.stereotype.Service;
 
 @Service
-public class TripService {
+public class TripService implements ResourceService<Trip> {
 
-    private TripRepository tripRepository;
+    public TripRepository tripRepository;
 
     public TripService(TripRepository tripRepository) {
         this.tripRepository = tripRepository;
     }
 
-    public Trip getTrip(Integer id) throws TripNotExistException {
+    public Trip create(Trip trip) {
+        tripRepository.save(trip);
+        return trip;
+    }
+
+    public Trip get(Integer id) throws ObjectNotExistException {
         Trip trip = tripRepository.findOne(id);
         if (trip == null) {
-            throw new TripNotExistException();
+            throw new ObjectNotExistException();
         }
         return trip;
     }
@@ -23,12 +30,22 @@ public class TripService {
         return tripRepository.findAll();
     }
 
-    public Trip createTrip(Trip trip) {
-        tripRepository.save(trip);
-        return trip;
-    }
-
-    public void deleteTrip(Integer id) {
+    public void delete(Integer id) {
         tripRepository.delete(id);
     }
+
+
+//    public void delete(Integer id) {
+//        Trip trip = get(id);
+//        trip.setArchived(true);
+//    }
+//
+//    public Iterable<Trip> getAll() {
+//        return tripRepository.findByArchived(false);
+//    }
+//
+//    public Trip get(Integer id) {
+//        return tripRepository.findByIdAndArchived(id, false);
+//    }
+
 }
