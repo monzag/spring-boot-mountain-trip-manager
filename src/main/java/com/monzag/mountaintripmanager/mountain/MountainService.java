@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class MountainService implements ResourceService<Mountain> {
 
-    private MountainRepository mountainRepository;
+    public MountainRepository mountainRepository;
 
     public MountainService(MountainRepository mountainRepository) {
         this.mountainRepository = mountainRepository;
