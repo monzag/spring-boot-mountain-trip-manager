@@ -12,7 +12,7 @@ public class TripController {
 
     private ResourceService<Trip> tripService;
 
-    public TripController(@Qualifier("tripArchievedService") ResourceService<Trip> tripService) {
+    public TripController(@Qualifier("tripArchivedService") ResourceService<Trip> tripService) {
         this.tripService = tripService;
     }
 
