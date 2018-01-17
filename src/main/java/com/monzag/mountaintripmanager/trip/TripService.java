@@ -34,18 +34,4 @@ public class TripService implements ResourceService<Trip> {
         tripRepository.delete(id);
     }
 
-
-//    public void delete(Integer id) {
-//        Trip trip = get(id);
-//        trip.setArchived(true);
-//    }
-//
-//    public Iterable<Trip> getAll() {
-//        return tripRepository.findByArchived(false);
-//    }
-//
-//    public Trip get(Integer id) {
-//        return tripRepository.findByIdAndArchived(id, false);
-//    }
-
 }
