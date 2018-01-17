@@ -14,6 +14,15 @@ public class Mountain {
     private String name;
     private Integer height;
     private String mountainRange;
+    private Boolean archived;
+
+    public Boolean getArchived() {
+        return archived;
+    }
+
+    public void setArchived(Boolean archived) {
+        this.archived = archived;
+    }
 
     public Integer getId() {
         return id;
