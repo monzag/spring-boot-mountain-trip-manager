@@ -3,9 +3,9 @@ package com.monzag.mountaintripmanager.trip;
 import org.springframework.stereotype.Service;
 
 @Service
-public class TripArchievedService extends TripService {
+public class TripArchivedService extends TripService {
 
-    public TripArchievedService(TripRepository tripRepository) {
+    public TripArchivedService(TripRepository tripRepository) {
         super(tripRepository);
     }
 
@@ -13,6 +13,7 @@ public class TripArchievedService extends TripService {
     public void delete(Integer id) {
         Trip trip = get(id);
         trip.setArchived(true);
+        trip.getMountain().setArchived(true);
         tripRepository.save(trip);
     }
 
