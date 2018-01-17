@@ -1,6 +1,8 @@
 package com.monzag.mountaintripmanager.mountain;
 
 import com.monzag.mountaintripmanager.common.ObjectNotExistException;
+import com.monzag.mountaintripmanager.common.ResourceService;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
@@ -8,9 +10,9 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping(path = "/mountains")
 public class MountainController {
 
-    private MountainService mountainService;
+    private ResourceService<Mountain> mountainService;
 
-    public MountainController(MountainService mountainService) {
+    public MountainController(@Qualifier("mountainArchivedService") ResourceService<Mountain> mountainService) {
         this.mountainService = mountainService;
     }
 
