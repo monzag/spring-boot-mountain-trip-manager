@@ -18,7 +18,7 @@ public class MountainController {
         return mountainService.getAll();
     }
 
-    @GetMapping(path = "{id}")
+    @GetMapping(path = "/{id}")
     public Mountain get(@PathVariable Integer id) throws MountainNotExistException {
         return mountainService.getMountain(id);
     }
