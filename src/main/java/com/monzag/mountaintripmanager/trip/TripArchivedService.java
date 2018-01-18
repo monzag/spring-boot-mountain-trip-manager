@@ -1,5 +1,6 @@
 package com.monzag.mountaintripmanager.trip;
 
+import com.monzag.mountaintripmanager.common.ArchivedObjectException;
 import com.monzag.mountaintripmanager.common.ObjectNotExistException;
 import org.springframework.stereotype.Service;
 
@@ -30,9 +31,14 @@ public class TripArchivedService extends TripService {
 
     @Override
     public Trip get(Integer id) throws ObjectNotExistException {
-        Trip trip = tripRepository.findByIdAndArchived(id, false);
+        Trip trip = tripRepository.findOne(id);
         if (trip == null) {
             throw new ObjectNotExistException();
+        } else {
+            trip = tripRepository.findByIdAndArchived(id, false);
+            if (trip == null) {
+                throw new ArchivedObjectException();
+            }
         }
         return trip;
     }
