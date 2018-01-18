@@ -41,9 +41,4 @@ public class MountainController {
         return mountain;
     }
 
-    @ResponseStatus(HttpStatus.NOT_FOUND)
-    @ExceptionHandler(ObjectNotExistException.class)
-    public String handleException(ObjectNotExistException e) {
-        return e.getMessage();
-    }
 }
