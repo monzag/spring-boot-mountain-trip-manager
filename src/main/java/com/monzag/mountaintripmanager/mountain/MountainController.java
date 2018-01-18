@@ -28,7 +28,10 @@ public class MountainController {
 
     @GetMapping(path = "/{id}")
     public Mountain get(@PathVariable Integer id) throws ObjectNotExistException {
-        return mountainService.get(id);
+        logger.info("Get mountain by id");
+        Mountain mountain = mountainService.get(id);
+        logger.debug("Successful getting mountain by id");
+        return mountain;
     }
 
     @PostMapping(path = "")
