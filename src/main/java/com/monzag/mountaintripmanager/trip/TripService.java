@@ -29,7 +29,7 @@ public class TripService implements ResourceService<Trip> {
         return tripRepository.findAll();
     }
 
-    public void delete(Integer id) {
+    public void delete(Integer id) throws ObjectNotExistException {
         tripRepository.delete(id);
     }
 
