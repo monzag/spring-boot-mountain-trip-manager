@@ -22,27 +22,29 @@ public class TripController {
     @GetMapping(path = "")
     public Iterable<Trip> index() {
         Iterable<Trip> trips = tripService.getAll();
-        logger.debug("Successful getting all objects");
+        logger.debug("Successful getting all trips");
         return trips;
     }
 
     @GetMapping(path = "/{id}")
     public Trip get(@PathVariable Integer id) throws ObjectNotExistException {
+        logger.info("Get trip by id");
         Trip trip = tripService.get(id);
-        logger.debug("Successful getting object by id");
+        logger.debug("Successful getting trip by id");
         return trip;
     }
 
     @PostMapping(path = "")
     public Trip create(@RequestBody Trip trip) {
         tripService.create(trip);
-        logger.debug("Successful creating new object");
+        logger.debug("Successful creating new trip");
         return trip;
     }
 
     @DeleteMapping(path = "/{id}")
-    public void delete(@PathVariable Integer id) {
+    public void delete(@PathVariable Integer id) throws ObjectNotExistException {
+        logger.info("Delete trip by id");
         tripService.delete(id);
-        logger.debug("Succesfull deleting object by id");
+        logger.debug("Successfull deleting trip by id");
     }
 }
