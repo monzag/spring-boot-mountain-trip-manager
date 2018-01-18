@@ -13,9 +13,8 @@ public class TripService implements ResourceService<Trip> {
         this.tripRepository = tripRepository;
     }
 
-    public Trip create(Trip trip) {
+    public void create(Trip trip) {
         tripRepository.save(trip);
-        return trip;
     }
 
     public Trip get(Integer id) throws ObjectNotExistException {
