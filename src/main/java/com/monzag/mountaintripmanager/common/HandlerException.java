@@ -14,5 +14,11 @@ public class HandlerException extends ResponseEntityExceptionHandler {
     public HandlerException(AppLogger logger) {
         this.logger = logger;
     }
-    
+
+    @ResponseStatus(HttpStatus.NOT_FOUND)
+    @ExceptionHandler(ObjectNotExistException.class)
+    public String handleException(ObjectNotExistException e) {
+        logger.error("User error: object with provide id not exist or is archived");
+        return e.getMessage();
+    }
 }
