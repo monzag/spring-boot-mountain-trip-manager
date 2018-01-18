@@ -30,7 +30,7 @@ public class MountainService implements ResourceService<Mountain> {
         mountainRepository.save(mountain);
     }
 
-    public void delete(Integer id) {
+    public void delete(Integer id) throws ObjectNotExistException {
         mountainRepository.delete(id);
     }
 }
