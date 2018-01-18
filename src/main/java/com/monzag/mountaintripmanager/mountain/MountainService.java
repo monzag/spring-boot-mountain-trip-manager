@@ -26,9 +26,8 @@ public class MountainService implements ResourceService<Mountain> {
         return mountainRepository.findAll();
     }
 
-    public Mountain create(Mountain mountain) {
+    public void create(Mountain mountain) {
         mountainRepository.save(mountain);
-        return mountain;
     }
 
     public void delete(Integer id) {
