@@ -12,16 +12,11 @@ public class TripArchivedService extends TripService {
     }
 
     @Override
-    public void delete(Integer id){
-        try {
-            Trip trip = get(id);
-            trip.setArchived(true);
-            trip.getMountain().setArchived(true);
-            tripRepository.save(trip);
-
-        } catch (ObjectNotExistException e) {
-            e.getMessage();
-        }
+    public void delete(Integer id) throws ObjectNotExistException {
+        Trip trip = get(id);
+        trip.setArchived(true);
+        trip.getMountain().setArchived(true);
+        tripRepository.save(trip);
     }
 
     @Override
