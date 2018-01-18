@@ -45,11 +45,4 @@ public class TripController {
         tripService.delete(id);
         logger.debug("Succesfull deleting object by id");
     }
-
-    @ResponseStatus(HttpStatus.NOT_FOUND)
-    @ExceptionHandler(ObjectNotExistException.class)
-    public String handleException(ObjectNotExistException e) {
-        logger.error("User error: object with provide id not exist or is archived");
-        return e.getMessage();
-    }
 }
