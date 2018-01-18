@@ -1,5 +1,6 @@
 package com.monzag.mountaintripmanager.trip;
 
+import com.monzag.mountaintripmanager.common.ObjectNotExistException;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -10,11 +11,16 @@ public class TripArchivedService extends TripService {
     }
 
     @Override
-    public void delete(Integer id) {
-        Trip trip = get(id);
-        trip.setArchived(true);
-        trip.getMountain().setArchived(true);
-        tripRepository.save(trip);
+    public void delete(Integer id){
+        try {
+            Trip trip = get(id);
+            trip.setArchived(true);
+            trip.getMountain().setArchived(true);
+            tripRepository.save(trip);
+
+        } catch (ObjectNotExistException e) {
+            e.getMessage();
+        }
     }
 
     @Override
@@ -23,7 +29,11 @@ public class TripArchivedService extends TripService {
     }
 
     @Override
-    public Trip get(Integer id) {
-        return tripRepository.findByIdAndArchived(id, false);
+    public Trip get(Integer id) throws ObjectNotExistException {
+        Trip trip = tripRepository.findByIdAndArchived(id, false);
+        if (trip == null) {
+            throw new ObjectNotExistException();
+        }
+        return trip;
     }
 }
