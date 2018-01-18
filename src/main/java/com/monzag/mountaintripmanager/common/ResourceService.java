@@ -8,6 +8,6 @@ public interface ResourceService<T> {
 
     void create(T object);
 
-    void delete(Integer id);
+    void delete(Integer id) throws ObjectNotExistException;
 
 }
