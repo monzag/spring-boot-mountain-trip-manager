@@ -28,7 +28,8 @@ public class MountainController {
 
     @PostMapping(path = "")
     public Mountain create(@RequestBody Mountain mountain) {
-        return mountainService.create(mountain);
+        mountainService.create(mountain);
+        return mountain;
     }
 
     @ResponseStatus(HttpStatus.NOT_FOUND)
