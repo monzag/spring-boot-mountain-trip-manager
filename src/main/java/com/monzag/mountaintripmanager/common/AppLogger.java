@@ -13,6 +13,10 @@ public class AppLogger {
     private Logger logger4j = LogManager.getLogger(AppLogger.class);
     private Marker marker = MarkerManager.getMarker("START");
 
+    public void info(String message) {
+        logger4j.info(marker, message);
+    }
+
     public void debug(String message) {
         logger4j.debug(marker, message);
     }
