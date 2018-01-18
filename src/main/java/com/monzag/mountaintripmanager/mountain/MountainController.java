@@ -37,6 +37,7 @@ public class MountainController {
     @PostMapping(path = "")
     public Mountain create(@RequestBody Mountain mountain) {
         mountainService.create(mountain);
+        logger.debug("Successful creating new mountain");
         return mountain;
     }
 
