@@ -6,7 +6,7 @@ public interface ResourceService<T> {
 
     Iterable<T> getAll();
 
-    T create(T object);
+    void create(T object);
 
     void delete(Integer id);
 
