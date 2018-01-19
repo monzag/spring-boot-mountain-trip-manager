@@ -19,12 +19,11 @@ public class HandlerException extends ResponseEntityExceptionHandler {
     }
 
     @ExceptionHandler(ArchivedObjectException.class)
-    public ResponseEntity<String> handleException(ArchivedObjectException e) throws JSONException {
+    public ResponseEntity<String> handleException(ArchivedObjectException e) {
         logger.error("User error: object with provide id is archived");
         return getResponse(e.getMessage(), HttpStatus.NOT_FOUND);
     }
 
-    @ResponseStatus(HttpStatus.NOT_FOUND)
     @ExceptionHandler(ObjectNotExistException.class)
     public ResponseEntity<String> handleException(ObjectNotExistException e) {
         logger.error("User error: object with provide id not exist");
